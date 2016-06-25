@@ -7,6 +7,7 @@
 
 
 #include <string>
+#include <SDL2/SDL.h>
 
 class Window
 {
@@ -23,9 +24,11 @@ public:
     virtual ~Window(void);
 
 protected:
+
 private:
     bool closed;
     SDL_Window *sdlWindow;
+    SDL_GLContext glContext;
 };
 
 
