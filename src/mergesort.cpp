@@ -4,7 +4,7 @@
 
 #include "mergesort.h"
 
-std::vector<int> Mergesort::sort(std::vector<int> &list)
+std::vector<int> Mergesort::sort(const std::vector<int> &list)
 {
     return this->mergeSort(list);
 }
