@@ -17,5 +17,26 @@ if (SDL2_FOUND)
     message(STATUS "SDL2 LIBRARY successfully linked")
 endif()
 
+# Require OpenGL
+find_package(OpenGL REQUIRED)
+if (OpenGL_FOUND)
+    message(STATUS "OpenGL_INCLUDE_DIR: ${OPENGL_INCLUDE_DIR}")
+    message(STATUS "OpenGL_LIBRARIES: ${OPENGL_LIBRARIES}")
+
+    # Link OpenGL library
+    link_libraries(${OPENGL_LIBRARIES})
+    message(STATUS "OPENGL LIBRARY successfully linked")
+endif()
+
+# Require GLEW
+find_package(GLEW REQUIRED)
+if (GLEW_FOUND)
+    message(STATUS "GLEW_INCLUDE_DIRS: ${GLEW_INCLUDE_DIRS}")
+    message(STATUS "GLEW_LIBRARIES: ${GLEW_LIBRARIES}")
+    # Link GLEW library
+    link_libraries(${GLEW_LIBRARIES})
+    message(STATUS "GLEW LIBRARY successfully linked")
+endif()
+
 set(SOURCE_FILES src/main.cpp src/mergesort.cpp src/mergesort.h src/window.cpp src/window.h)
 add_executable(Mergesort_OpenGL ${SOURCE_FILES})
