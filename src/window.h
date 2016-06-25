@@ -11,16 +11,21 @@
 class Window
 {
 public:
-    Window(unsigned short width, unsigned short height, const std::string& title);
+    Window(unsigned short width, unsigned short height, const std::string &title);
 
     void clear(void);
+
     void refresh(void);
-    bool isClosed(void);
+
+    inline bool isClosed(void)
+    { return this->closed; };
 
     virtual ~Window(void);
+
 protected:
 private:
     bool closed;
+    SDL_Window *sdlWindow;
 };
 
 
