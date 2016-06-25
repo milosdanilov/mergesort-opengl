@@ -42,4 +42,28 @@ std::vector<int> Mergesort::merge(const std::vector<int> &left, const std::vecto
     return result;
 }
 
-void Mergesort::mergeSort() { }
+std::vector<int> Mergesort::mergeSort(const std::vector<int> &list)
+{
+    if (list.size() <= 1)
+        return list;
+
+    std::vector<int> left;
+    std::vector<int> right;
+
+    unsigned long middle = list.size() / 2;
+
+    for (unsigned long i = 0; i < middle; i++)
+    {
+        left.push_back(list.at(i));
+    }
+
+    for (unsigned long i = middle; i < list.size(); i++)
+    {
+        right.push_back(list.at(i));
+    }
+
+    left = this->mergeSort(left);
+    right = this->mergeSort(right);
+
+    return this->merge(left, right);
+}

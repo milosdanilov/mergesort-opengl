@@ -16,7 +16,7 @@ public:
     void sort();
 protected:
     std::vector<int> merge(const std::vector<int> &left, const std::vector<int> &right);
-    void mergeSort();
+    std::vector<int> mergeSort(const std::vector<int> &list);
 private:
 
 };
