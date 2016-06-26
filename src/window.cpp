@@ -37,6 +37,18 @@ Window::Window(unsigned short width, unsigned short height, const std::string &t
     this->closed = false;
 }
 
+void Window::clear()
+{
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Window::refresh()
+{
+    SDL_GL_SwapWindow(this->sdlWindow);
+    SDL_GL_SetSwapInterval(1);
+}
+
 Window::~Window(void) {
 
     this->closed = true;
