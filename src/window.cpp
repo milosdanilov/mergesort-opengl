@@ -6,8 +6,8 @@
 #include <iostream>
 #include "window.h"
 
-Window::Window(unsigned short width, unsigned short height, const std::string &title) {
-
+Window::Window(unsigned short width, unsigned short height, const std::string &title)
+{
     SDL_Init(SDL_INIT_VIDEO);
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
@@ -49,9 +49,11 @@ void Window::refresh()
     SDL_GL_SetSwapInterval(1);
 }
 
-Window::~Window(void) {
-
+Window::~Window(void)
+{
     this->closed = true;
+
+    SDL_GL_DeleteContext(this->glContext);
 
     SDL_DestroyWindow(this->sdlWindow);
     SDL_Quit();
