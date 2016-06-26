@@ -57,6 +57,7 @@ void Window::inputHandle()
         switch (event.type)
         {
             case SDL_QUIT:
+                std::cout << "closing window!" << std::endl;
                 this->close();
                 break;
             default:
@@ -67,10 +68,10 @@ void Window::inputHandle()
 
 Window::~Window(void)
 {
+    std::cout << "destructor called!" << std::endl;
+
     SDL_GL_DeleteContext(this->glContext);
 
     SDL_DestroyWindow(this->sdlWindow);
     SDL_Quit();
-
-    delete this;
 }
