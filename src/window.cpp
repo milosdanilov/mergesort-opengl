@@ -34,7 +34,7 @@ Window::Window(unsigned short width, unsigned short height, const std::string &t
     }
 
 
-    this->closed = false;
+    this->open();
 }
 
 void Window::clear()
@@ -57,7 +57,7 @@ void Window::inputHandle()
         switch (event.type)
         {
             case SDL_QUIT:
-                this->closed = true;
+                this->close();
                 break;
             default:
                 break;
@@ -67,8 +67,6 @@ void Window::inputHandle()
 
 Window::~Window(void)
 {
-    this->closed = true;
-
     SDL_GL_DeleteContext(this->glContext);
 
     SDL_DestroyWindow(this->sdlWindow);

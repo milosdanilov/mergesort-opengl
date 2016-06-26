@@ -31,6 +31,12 @@ private:
     bool closed;
     SDL_Window *sdlWindow;
     SDL_GLContext glContext;
+
+    inline void close(void)
+    { this->closed = true; }
+
+    inline void open(void)
+    { this->closed = false; }
 };
 
 
