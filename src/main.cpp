@@ -29,7 +29,13 @@ int main() {
 
     cout << "END" << endl;
 
-    Window *myWindow = new Window(800, 600, "Mergesort");
+    Window myWindow(800, 600, "Mergesort");
+
+    while (! myWindow.isClosed())
+    {
+        myWindow.draw();
+        myWindow.inputHandle();
+    }
 
     return 0;
 }
