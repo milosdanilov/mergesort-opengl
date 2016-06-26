@@ -49,6 +49,22 @@ void Window::refresh()
     SDL_GL_SetSwapInterval(1);
 }
 
+void Window::inputHandle()
+{
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {
+        switch (event.type)
+        {
+            case SDL_QUIT:
+                this->closed = true;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 Window::~Window(void)
 {
     this->closed = true;
