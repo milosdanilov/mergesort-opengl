@@ -6,11 +6,27 @@
 #define MERGESORT_OPENGL_PILLAR_H
 
 
+#include <GL/glew.h>
+
 class Pillar
 {
 public:
+    Pillar(float height);
+
+    void draw(void);
+
+    virtual ~Pillar() {};
 protected:
 private:
+    GLfloat xPos;
+    GLfloat yPos;
+    GLfloat height;
+    GLfloat width;
+
+    static const short maxNumOfPillars = 10;
+    static constexpr GLfloat spaceBetweenPillars = 0.0f;
+
+    static short numOfPillars;
 };
 
 
