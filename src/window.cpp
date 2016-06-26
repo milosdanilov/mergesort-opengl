@@ -35,11 +35,14 @@ Window::Window(unsigned short width, unsigned short height, const std::string &t
 
 
     this->open();
+
+    this->clear();
+    this->refresh();
 }
 
 void Window::clear()
 {
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // set background color
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -47,6 +50,20 @@ void Window::refresh()
 {
     SDL_GL_SwapWindow(this->sdlWindow);
     SDL_GL_SetSwapInterval(1);
+}
+
+void Window::draw()
+{
+    this->clear();
+
+    glBegin(GL_POLYGON);
+    glVertex3f(0.25, 0.25, 0.0);
+    glVertex3f(0.75, 0.25, 0.0);
+    glVertex3f(0.75, 0.75, 0.0);
+    glVertex3f(0.25, 0.75, 0.0);
+    glEnd();
+
+    this->refresh();
 }
 
 void Window::inputHandle()

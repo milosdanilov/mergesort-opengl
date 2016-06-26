@@ -18,6 +18,8 @@ public:
 
     void refresh(void);
 
+    void draw(void);
+
     void inputHandle(void);
 
     inline bool isClosed(void)
