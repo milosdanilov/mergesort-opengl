@@ -12,13 +12,13 @@
 class Window
 {
 public:
-    Window(unsigned short width, unsigned short height, const std::string &title);
+    Window(int width, int height, const std::string &title);
 
     void clear(void);
 
     void refresh(void);
 
-    void draw(void);
+    void set2DPerspective(void);
 
     void inputHandle(void);
 
@@ -31,6 +31,10 @@ protected:
 
 private:
     bool closed;
+
+    int width;
+    int height;
+
     SDL_Window *sdlWindow;
     SDL_GLContext glContext;
 

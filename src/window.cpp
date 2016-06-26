@@ -6,8 +6,11 @@
 #include <iostream>
 #include "window.h"
 
-Window::Window(unsigned short width, unsigned short height, const std::string &title)
+Window::Window(int width, int height, const std::string &title)
 {
+    this->width = width;
+    this->height = height;
+
     SDL_Init(SDL_INIT_VIDEO);
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
@@ -52,18 +55,13 @@ void Window::refresh()
     SDL_GL_SetSwapInterval(1);
 }
 
-void Window::draw()
+void Window::set2DPerspective()
 {
-    this->clear();
-
-    glBegin(GL_POLYGON);
-    glVertex3f(0.25, 0.25, 0.0);
-    glVertex3f(0.75, 0.25, 0.0);
-    glVertex3f(0.75, 0.75, 0.0);
-    glVertex3f(0.25, 0.75, 0.0);
-    glEnd();
-
-    this->refresh();
+    glViewport(0, 0, this->width, this->height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0.0, this->width, this->height, 0.0, -1.0, 1.0);
+    glMatrixMode(GL_MODELVIEW);
 }
 
 void Window::inputHandle()
