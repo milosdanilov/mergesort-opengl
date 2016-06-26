@@ -2,12 +2,13 @@
 #include <vector>
 #include "mergesort.h"
 #include "window.h"
+#include "pillar.h"
 
 using namespace std;
 
 int main() {
 
-    vector<int> unsortedList = {38, 27, 43, 3, 9, 82, 10};
+    vector<int> unsortedList = {38, 27, 43, 3, 9, 82, 10, 12, 67, 103};
     vector<int> sortedList;
 
     cout << "START" << endl;
@@ -30,10 +31,26 @@ int main() {
     cout << "END" << endl;
 
     Window myWindow(800, 600, "Mergesort");
+    myWindow.set2DPerspective();
+
+    std::vector<Pillar*> pillars;
+    for (unsigned int i = 0; i < unsortedList.size(); i++)
+    {
+        Pillar *pillar = new Pillar(unsortedList.at(i));
+        pillars.push_back(pillar);
+    }
 
     while (! myWindow.isClosed())
     {
-        myWindow.draw();
+        myWindow.clear();
+
+        for (unsigned int i = 0; i < unsortedList.size(); i++)
+        {
+            pillars.at(i)->draw();
+        }
+
+        myWindow.refresh();
+
         myWindow.inputHandle();
     }
 
