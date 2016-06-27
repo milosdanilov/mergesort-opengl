@@ -11,10 +11,10 @@ Pillar::Pillar(float height)
     this->height = height;
     this->width = (800 - 20.0f - this->maxNumOfPillars * this->spaceBetweenPillars) / this->maxNumOfPillars;
 
-    this->xPos = 10.0f + numOfPillars * (this->width + this->spaceBetweenPillars);
+    this->xPos = 10.0f + Pillar::numOfPillars * (this->width + this->spaceBetweenPillars);
     this->yPos = 600 - 100.0f;
 
-    numOfPillars++;
+    Pillar::numOfPillars++;
 }
 
 void Pillar::draw()
