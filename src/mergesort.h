@@ -6,6 +6,7 @@
 #define MERGESORT_OPENGL_MERGESORT_H
 
 #include <vector>
+#include "pillar.h"
 
 class Mergesort
 {
@@ -13,10 +14,10 @@ public:
     Mergesort() {};
     virtual ~Mergesort() {};
 
-    std::vector<int> sort(const std::vector<int> &list);
+    std::vector<Pillar*> sort(const std::vector<Pillar*> &pillars);
 protected:
-    std::vector<int> merge(const std::vector<int> &left, const std::vector<int> &right);
-    std::vector<int> mergeSort(const std::vector<int> &list);
+    std::vector<Pillar*> merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right);
+    std::vector<Pillar*> mergeSort(const std::vector<Pillar*> &pillars);
 private:
 
 };

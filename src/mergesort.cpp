@@ -4,65 +4,76 @@
 
 #include "mergesort.h"
 
-std::vector<int> Mergesort::sort(const std::vector<int> &list)
+std::vector<Pillar*> Mergesort::sort(const std::vector<Pillar*> &pillars)
 {
-    return this->mergeSort(list);
+    return this->mergeSort(pillars);
 }
 
-std::vector<int> Mergesort::merge(const std::vector<int> &left, const std::vector<int> &right)
+std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right)
 {
     unsigned int leftIndex = 0;
     unsigned int rightIndex = 0;
 
-    std::vector<int> result;
+    std::vector<Pillar*> result;
+
+    result.reserve(left.size() + right.size());
+    result.insert(result.end(), left.begin(), left.end());
+    result.insert(result.end(), right.begin(), right.end());
+
+    std::vector<GLfloat> heights;
 
     while (leftIndex < left.size() && rightIndex < right.size())
     {
-        if (left.at(leftIndex) <= right.at(rightIndex))
+        if (left.at(leftIndex)->getHeight() <= right.at(rightIndex)->getHeight())
         {
-            result.push_back(left.at(leftIndex));
+            heights.push_back(left.at(leftIndex)->getHeight());
             leftIndex++;
         }
         else
         {
-            result.push_back(right.at(rightIndex));
+            heights.push_back(right.at(rightIndex)->getHeight());
             rightIndex++;
         }
     }
 
     while (leftIndex < left.size())
     {
-        result.push_back(left.at(leftIndex));
+        heights.push_back(left.at(leftIndex)->getHeight());
         leftIndex++;
     }
 
     while (rightIndex < right.size())
     {
-        result.push_back(right.at(rightIndex));
+        heights.push_back(right.at(rightIndex)->getHeight());
         rightIndex++;
+    }
+
+    for (int i = 0; i < heights.size(); i++)
+    {
+        result.at(i)->setHeight(heights.at(i));
     }
 
     return result;
 }
 
-std::vector<int> Mergesort::mergeSort(const std::vector<int> &list)
+std::vector<Pillar*> Mergesort::mergeSort(const std::vector<Pillar*> &pillars)
 {
-    if (list.size() <= 1)
-        return list;
+    if (pillars.size() <= 1)
+        return pillars;
 
-    std::vector<int> left;
-    std::vector<int> right;
+    std::vector<Pillar*> left;
+    std::vector<Pillar*> right;
 
-    unsigned long middle = list.size() / 2;
+    unsigned long middle = pillars.size() / 2;
 
     for (unsigned long i = 0; i < middle; i++)
     {
-        left.push_back(list.at(i));
+        left.push_back(pillars.at(i));
     }
 
-    for (unsigned long i = middle; i < list.size(); i++)
+    for (unsigned long i = middle; i < pillars.size(); i++)
     {
-        right.push_back(list.at(i));
+        right.push_back(pillars.at(i));
     }
 
     left = this->mergeSort(left);
