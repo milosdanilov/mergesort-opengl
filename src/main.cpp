@@ -8,7 +8,15 @@ using namespace std;
 
 int main() {
 
-    vector<int> unsortedList = {38, 27, 43, 3, 9, 82, 10, 12, 67, 103};
+    vector<float> unsortedList;
+    unsortedList.reserve(100);
+
+    for (int i = 0; i < 100; i++)
+    {
+        float height = (float)(rand() % (600 - 200));
+        unsortedList.push_back(height);
+    }
+
     vector<int> sortedList;
 
 //    cout << "START" << endl;
@@ -37,19 +45,19 @@ int main() {
         pillars.push_back(pillar);
     }
 
-    Mergesort mergesort;
+    Mergesort mergesort(&myWindow);
     pillars = mergesort.sort(pillars);
 
     while (! myWindow.isClosed())
     {
-        myWindow.clear();
-
-        for (unsigned int i = 0; i < unsortedList.size(); i++)
-        {
-            pillars.at(i)->draw();
-        }
-
-        myWindow.refresh();
+//        myWindow.clear();
+//
+//        for (unsigned int i = 0; i < unsortedList.size(); i++)
+//        {
+//            pillars.at(i)->draw();
+//        }
+//
+//        myWindow.refresh();
 
         myWindow.inputHandle();
     }
