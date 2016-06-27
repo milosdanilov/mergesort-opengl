@@ -29,7 +29,7 @@ private:
     GLfloat height;
     GLfloat width;
 
-    static const short maxNumOfPillars = 10;
+    static const short maxNumOfPillars = 100;
     static constexpr GLfloat spaceBetweenPillars = 0.0f;
 
     static short numOfPillars;
