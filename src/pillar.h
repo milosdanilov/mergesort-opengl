@@ -15,6 +15,12 @@ public:
 
     void draw(void);
 
+    inline GLfloat getHeight(void)
+    { return this->height; };
+
+    inline void setHeight(GLfloat height)
+    { this->height = height; };
+
     virtual ~Pillar() {};
 protected:
 private:
