@@ -38,5 +38,5 @@ if (GLEW_FOUND)
     message(STATUS "GLEW LIBRARY successfully linked")
 endif()
 
-set(SOURCE_FILES src/main.cpp src/mergesort.cpp src/mergesort.h src/window.cpp src/window.h src/pillar.cpp src/pillar.h)
+set(SOURCE_FILES src/main.cpp src/mergesort.cpp src/mergesort.h src/window.cpp src/window.h src/pillar.cpp src/pillar.h src/canvas.cpp src/canvas.h)
 add_executable(Mergesort_OpenGL ${SOURCE_FILES})

@@ -25,6 +25,12 @@ public:
     inline bool isClosed(void)
     { return this->closed; };
 
+    inline int getHeight()
+    { return this->height; }
+
+    inline int getWidth()
+    { return this->width; }
+
     virtual ~Window(void);
 
 protected:
