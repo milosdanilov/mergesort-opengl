@@ -7,13 +7,11 @@
 
 #include <vector>
 #include "pillar.h"
-#include "window.h"
 #include "canvas.h"
 
 class Mergesort
 {
 public:
-    // TODO - temp set window dependency, change this
     Mergesort(Canvas *canvas)
     {
         this->canvas = canvas;
