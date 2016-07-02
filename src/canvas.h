@@ -16,7 +16,7 @@ public:
 
     ~Canvas();
 protected:
-    void setCanvasRanges(GLint x, GLint y, GLsizei width, GLsizei height);
+    void setCanvasSize(GLint x, GLint y, GLsizei width, GLsizei height);
 private:
     Window *window;
 };
