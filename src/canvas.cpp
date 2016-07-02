@@ -4,6 +4,12 @@
 
 #include "canvas.h"
 
+Canvas::Canvas(Window *window)
+{
+    this->window = window;
+    this->setCanvasRanges(0, 0, this->window->getWidth(), this->window->getHeight());
+}
+
 void Canvas::setCanvasRanges(GLint x, GLint y, GLsizei width, GLsizei height)
 {
     glViewport(x, y, width, height);

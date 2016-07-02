@@ -12,15 +12,11 @@
 class Canvas
 {
 public:
-    Canvas(Window *window)
-    {
-        this->window = window;
-        this->setCanvasRanges(0, 0, this->window->getWidth(), this->window->getHeight());
-    }
+    Canvas(Window *window);
 
-    virtual ~Canvas();
+    ~Canvas();
 protected:
-    void setCanvasRanges(GLint x, GLint y, GLsizei width, GLsizei height)
+    void setCanvasRanges(GLint x, GLint y, GLsizei width, GLsizei height);
 private:
     Window *window;
 };
