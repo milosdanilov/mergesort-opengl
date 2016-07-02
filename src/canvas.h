@@ -14,10 +14,14 @@ class Canvas
 public:
     Canvas(Window *window);
 
-    ~Canvas();
+    void clear(void);
+    void update(void);
+
+    virtual ~Canvas() {};
 protected:
     void setCanvasSize(GLint x, GLint y, GLsizei width, GLsizei height);
     void setCanvasRangesOblique(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top);
+
 private:
     Window *window;
 };

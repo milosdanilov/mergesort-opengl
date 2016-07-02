@@ -8,14 +8,15 @@
 #include <vector>
 #include "pillar.h"
 #include "window.h"
+#include "canvas.h"
 
 class Mergesort
 {
 public:
     // TODO - temp set window dependency, change this
-    Mergesort(Window *window)
+    Mergesort(Canvas *canvas)
     {
-        this->window = window;
+        this->canvas = canvas;
     };
 
     virtual ~Mergesort() {};
@@ -25,7 +26,7 @@ protected:
     std::vector<Pillar*> merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right);
     std::vector<Pillar*> mergeSort(const std::vector<Pillar*> &pillars);
 private:
-    Window *window;
+    Canvas *canvas;
 };
 
 #endif //MERGESORT_OPENGL_MERGESORT_H

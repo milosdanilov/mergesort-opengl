@@ -36,7 +36,8 @@ int main() {
 //    cout << "END" << endl;
 
     Window myWindow(800, 600, "Mergesort");
-    myWindow.set2DPerspective();
+
+    Canvas canvas(&myWindow);
 
     std::vector<Pillar*> pillars;
     for (unsigned int i = 0; i < unsortedList.size(); i++)
@@ -45,7 +46,7 @@ int main() {
         pillars.push_back(pillar);
     }
 
-    Mergesort mergesort(&myWindow);
+    Mergesort mergesort(&canvas);
     pillars = mergesort.sort(pillars);
 
     while (! myWindow.isClosed())
