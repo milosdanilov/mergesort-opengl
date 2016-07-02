@@ -9,7 +9,7 @@ Canvas::Canvas(Window *window)
     this->window = window;
 
     this->setCanvasSize(0, 0, this->window->getWidth(), this->window->getHeight());
-    this->setCanvasRangesOblique(0.0, 0.0, this->window->getWidth(), this->window->getHeight());
+    this->setCanvasRangesOblique(0.0, this->window->getWidth(), this->window->getHeight(), 0.0);
 }
 
 void Canvas::setCanvasSize(GLint x, GLint y, GLsizei width, GLsizei height)
