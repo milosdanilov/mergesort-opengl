@@ -6,6 +6,7 @@
 
 std::vector<Pillar*> Mergesort::sort()
 {
+    // TODO - find a clean way to pass a vector reference of pointers
     return this->mergeSort(*this->pillars);
 }
 

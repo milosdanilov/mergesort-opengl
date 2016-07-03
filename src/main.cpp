@@ -16,6 +16,7 @@ int main() {
     vector<float> unsortedList;
     unsortedList.reserve(100);
 
+    // TODO - add a proper func for seed randomization
     srand ( time(NULL) );
     for (int i = 0; i < 100; i++)
     {
@@ -45,6 +46,8 @@ int main() {
 
     while (! myWindow.isClosed())
     {
+        // Redrawing of the pillars until window closes.
+        // This reduces the stress on CPU, why ?
         mergesort.drawPillars();
         myWindow.inputHandle();
     }
