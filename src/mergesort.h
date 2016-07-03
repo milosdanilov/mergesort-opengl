@@ -18,6 +18,8 @@ public:
         this->pillars = pillars;
     };
 
+    void drawPillars(void);
+
     virtual ~Mergesort() {};
 
     std::vector<Pillar*> sort();
@@ -25,7 +27,6 @@ protected:
     std::vector<Pillar*> merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right);
     std::vector<Pillar*> mergeSort(const std::vector<Pillar*> &pillars);
 
-    void drawPillars(void);
 private:
     Canvas *canvas;
     std::vector<Pillar*> *pillars;

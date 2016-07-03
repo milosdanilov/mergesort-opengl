@@ -45,6 +45,7 @@ int main() {
 
     while (! myWindow.isClosed())
     {
+        mergesort.drawPillars();
         myWindow.inputHandle();
     }
 
