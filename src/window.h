@@ -18,8 +18,6 @@ public:
 
     void refresh(void);
 
-    void set2DPerspective(void);
-
     void inputHandle(void);
 
     inline bool isClosed(void)

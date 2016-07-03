@@ -55,15 +55,6 @@ void Window::refresh()
     SDL_GL_SetSwapInterval(1);
 }
 
-void Window::set2DPerspective()
-{
-    glViewport(0, 0, this->width, this->height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(0.0, this->width, this->height, 0.0, -1.0, 1.0);
-    glMatrixMode(GL_MODELVIEW);
-}
-
 void Window::inputHandle()
 {
     if (this->isClosed())
