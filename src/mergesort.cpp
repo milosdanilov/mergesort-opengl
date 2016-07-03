@@ -48,16 +48,6 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
         rightIndex++;
     }
 
-//    this->canvas->clear();
-//
-//    for (int i = 0; i < heights.size(); i++)
-//    {
-//        result.at(i)->setHeight(heights.at(i));
-//        result.at(i)->draw();
-//    }
-//
-//    this->canvas->update();
-
     for (unsigned int i = 0; i < left.size(); i++)
     {
         left.at(i)->setHeight(heights.at(i));
