@@ -66,6 +66,11 @@ void Window::set2DPerspective()
 
 void Window::inputHandle()
 {
+    if (this->isClosed())
+    {
+        SDL_Quit();
+    }
+
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
