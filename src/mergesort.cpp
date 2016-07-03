@@ -48,16 +48,9 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
         rightIndex++;
     }
 
-    for (unsigned int i = 0; i < left.size(); i++)
+    for (unsigned int i = 0; i < result.size(); i++)
     {
-        left.at(i)->setHeight(heights.at(i));
-
-        this->drawPillars();
-    }
-
-    for (unsigned int i = 0; i < right.size(); i++)
-    {
-        right.at(i)->setHeight(heights.at(i + left.size()));
+        result.at(i)->setHeight(heights.at(i));
 
         this->drawPillars();
     }
