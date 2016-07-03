@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "mergesort.h"
-#include "window.h"
-#include "pillar.h"
 
 using namespace std;
 
@@ -17,24 +15,6 @@ int main() {
         unsortedList.push_back(height);
     }
 
-    vector<int> sortedList;
-
-//    cout << "START" << endl;
-//
-//    for (unsigned int i = 0; i < unsortedList.size(); i++)
-//    {
-//        cout << unsortedList.at(i) << " ";
-//    }
-//    cout << endl;
-//
-//    for (unsigned int i = 0; i < sortedList.size(); i++)
-//    {
-//        cout << sortedList.at(i) << " ";
-//    }
-//    cout << endl;
-//
-//    cout << "END" << endl;
-
     Window myWindow(800, 600, "Mergesort");
 
     Canvas canvas(&myWindow);
@@ -46,20 +26,11 @@ int main() {
         pillars.push_back(pillar);
     }
 
-    Mergesort mergesort(&canvas);
+    Mergesort mergesort(&canvas, &pillars);
     pillars = mergesort.sort(pillars);
 
     while (! myWindow.isClosed())
     {
-//        myWindow.clear();
-//
-//        for (unsigned int i = 0; i < unsortedList.size(); i++)
-//        {
-//            pillars.at(i)->draw();
-//        }
-//
-//        myWindow.refresh();
-
         myWindow.inputHandle();
     }
 
