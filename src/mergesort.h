@@ -12,9 +12,10 @@
 class Mergesort
 {
 public:
-    Mergesort(Canvas *canvas)
+    Mergesort(Canvas *canvas, std::vector<Pillar*> *pillars)
     {
         this->canvas = canvas;
+        this->pillars = pillars;
     };
 
     virtual ~Mergesort() {};
@@ -23,8 +24,11 @@ public:
 protected:
     std::vector<Pillar*> merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right);
     std::vector<Pillar*> mergeSort(const std::vector<Pillar*> &pillars);
+
+    void drawPillars(void);
 private:
     Canvas *canvas;
+    std::vector<Pillar*> *pillars;
 };
 
 #endif //MERGESORT_OPENGL_MERGESORT_H
