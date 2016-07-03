@@ -31,4 +31,5 @@ void Canvas::clear()
 void Canvas::update()
 {
     this->window->refresh();
+    this->window->inputHandle();
 }
