@@ -20,7 +20,7 @@ public:
 
     virtual ~Mergesort() {};
 
-    std::vector<Pillar*> sort(const std::vector<Pillar*> &pillars);
+    std::vector<Pillar*> sort();
 protected:
     std::vector<Pillar*> merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right);
     std::vector<Pillar*> mergeSort(const std::vector<Pillar*> &pillars);

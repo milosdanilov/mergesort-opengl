@@ -4,9 +4,9 @@
 
 #include "mergesort.h"
 
-std::vector<Pillar*> Mergesort::sort(const std::vector<Pillar*> &pillars)
+std::vector<Pillar*> Mergesort::sort()
 {
-    return this->mergeSort(pillars);
+    return this->mergeSort(*this->pillars);
 }
 
 std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right)
