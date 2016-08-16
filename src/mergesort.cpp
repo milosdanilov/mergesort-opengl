@@ -115,14 +115,19 @@ std::vector<Pillar*> Mergesort::mergeSort(const std::vector<Pillar*> &pillars)
     return this->merge(left, right);
 }
 
-void Mergesort::draw()
+void Mergesort::drawPillars()
 {
-    this->canvas->clear();
-
     for (unsigned int i = 0; i < this->pillars->size(); i++)
     {
         pillars->at(i)->draw();
     }
+}
+
+void Mergesort::draw()
+{
+    this->canvas->clear();
+
+    this->drawPillars();
 
     this->canvas->update();
 }

@@ -30,6 +30,8 @@ protected:
 private:
     Canvas *canvas;
     std::vector<Pillar*> *pillars;
+
+    void drawPillars(void);
 };
 
 #endif //MERGESORT_OPENGL_MERGESORT_H
