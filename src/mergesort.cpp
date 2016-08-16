@@ -83,7 +83,7 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
     {
         result.at(i)->setHeight(heights.at(i));
 
-        this->drawPillars();
+        this->draw();
     }
 
     return result;
@@ -115,7 +115,7 @@ std::vector<Pillar*> Mergesort::mergeSort(const std::vector<Pillar*> &pillars)
     return this->merge(left, right);
 }
 
-void Mergesort::drawPillars()
+void Mergesort::draw()
 {
     this->canvas->clear();
 

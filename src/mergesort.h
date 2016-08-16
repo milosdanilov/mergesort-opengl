@@ -18,7 +18,7 @@ public:
         this->pillars = pillars;
     };
 
-    void drawPillars(void);
+    void draw(void);
 
     virtual ~Mergesort() {};
 
