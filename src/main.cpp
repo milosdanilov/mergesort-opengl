@@ -48,7 +48,7 @@ int main() {
     {
         // Redrawing of the pillars until window closes.
         // This reduces the stress on CPU, why ?
-        mergesort.drawPillars();
+        mergesort.draw();
         myWindow.inputHandle();
     }
 

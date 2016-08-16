@@ -12,12 +12,16 @@
 class Mergesort
 {
 public:
+    Pillar *currentPillar;
+    bool drawCurrentPillar = false;
+
     Mergesort(Canvas *canvas, std::vector<Pillar*> *pillars)
     {
         this->canvas = canvas;
         this->pillars = pillars;
     };
 
+    void draw(void);
     void drawPillars(void);
 
     virtual ~Mergesort() {};

@@ -27,25 +27,27 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
     {
         if (left.at(leftIndex)->getHeight() <= right.at(rightIndex)->getHeight())
         {
-            left.at(leftIndex)->draw(1.0f, 0.0f, 0.0f);
+            this->currentPillar = left.at(leftIndex);
+            this->drawCurrentPillar = true;
 
-            this->canvas->update();
-            this->drawPillars();
+            this->draw();
 
             heights.push_back(left.at(leftIndex)->getHeight());
             leftIndex++;
         }
         else
         {
-            right.at(leftIndex)->draw(0.0f, 0.0f, 1.0f);
+            this->currentPillar = right.at(rightIndex);
+            this->drawCurrentPillar = true;
 
-            this->canvas->update();
-            this->drawPillars();
+            this->draw();
 
             heights.push_back(right.at(rightIndex)->getHeight());
             rightIndex++;
         }
     }
+
+    this->drawCurrentPillar = false;
 
     while (leftIndex < left.size())
     {
@@ -63,7 +65,7 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
     {
         result.at(i)->setHeight(heights.at(i));
 
-        this->drawPillars();
+        this->draw();
     }
 
     return result;
@@ -95,14 +97,24 @@ std::vector<Pillar*> Mergesort::mergeSort(const std::vector<Pillar*> &pillars)
     return this->merge(left, right);
 }
 
-void Mergesort::drawPillars()
+void Mergesort::draw()
 {
     this->canvas->clear();
 
-    for (unsigned int i = 0; i < this->pillars->size(); i++)
+    this->drawPillars();
+
+    if (this->drawCurrentPillar)
     {
-        pillars->at(i)->draw(1.0f, 1.0f, 1.0f);
+        this->currentPillar->draw(1.0f, 0.0f, 0.0f);
     }
 
     this->canvas->update();
+}
+
+void Mergesort::drawPillars()
+{
+    for (unsigned int i = 0; i < this->pillars->size(); i++)
+    {
+        this->pillars->at(i)->draw(1.0f, 1.0f, 1.0f);
+    }
 }
