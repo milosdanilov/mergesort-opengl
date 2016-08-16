@@ -13,7 +13,7 @@ class Pillar
 public:
     Pillar(float height);
 
-    void draw(void);
+    void draw(GLfloat red, GLfloat green, GLfloat blue);
 
     inline GLfloat getHeight(void)
     { return this->height; };

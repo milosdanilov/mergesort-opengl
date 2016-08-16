@@ -17,15 +17,15 @@ Pillar::Pillar(float height)
     Pillar::numOfPillars++;
 }
 
-void Pillar::draw()
+void Pillar::draw(GLfloat red, GLfloat green, GLfloat blue)
 {
-    glColor3f(0.0f, 0.0f, 1.0f);
+    glColor3f(red, green, blue);
 
     glBegin(GL_TRIANGLE_FAN);
 
     glVertex2f(this->xPos, this->yPos);
     glVertex2f(this->xPos + this->width, this->yPos);
-    glColor3f(0.0f, 1.0f, 0.0f);
+//    glColor3f(0.0f, 1.0f, 0.0f);
     glVertex2f(this->xPos + this->width, this->yPos - this->height);
     glVertex2f(this->xPos, this->yPos - this->height);
 

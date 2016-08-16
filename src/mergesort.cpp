@@ -27,40 +27,20 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
     {
         if (left.at(leftIndex)->getHeight() <= right.at(rightIndex)->getHeight())
         {
-//            glColor3f(1.0f, 0.0f, 0.0f);
-//
-//            glBegin(GL_TRIANGLE_FAN);
-//
-//            glVertex2f(left.at(leftIndex)->xPos, left.at(leftIndex)->yPos);
-//            glVertex2f(left.at(leftIndex)->xPos + left.at(leftIndex)->width, left.at(leftIndex)->yPos);
-//            glVertex2f(left.at(leftIndex)->xPos + left.at(leftIndex)->width, left.at(leftIndex)->yPos - left.at(leftIndex)->height);
-//            glVertex2f(left.at(leftIndex)->xPos, left.at(leftIndex)->yPos - left.at(leftIndex)->height);
-//
-//            glEnd();
-//
-//            this->canvas->update();
-//
-//            this->drawPillars();
+            left.at(leftIndex)->draw(1.0f, 0.0f, 0.0f);
+
+            this->canvas->update();
+            this->drawPillars();
 
             heights.push_back(left.at(leftIndex)->getHeight());
             leftIndex++;
         }
         else
         {
-//            glColor3f(1.0f, 0.0f, 0.0f);
-//
-//            glBegin(GL_TRIANGLE_FAN);
-//
-//            glVertex2f(right.at(rightIndex)->xPos, right.at(rightIndex)->yPos);
-//            glVertex2f(right.at(rightIndex)->xPos + right.at(rightIndex)->width, right.at(rightIndex)->yPos);
-//            glVertex2f(right.at(rightIndex)->xPos + right.at(rightIndex)->width, right.at(rightIndex)->yPos - right.at(rightIndex)->height);
-//            glVertex2f(right.at(rightIndex)->xPos, right.at(rightIndex)->yPos - right.at(rightIndex)->height);
-//
-//            glEnd();
-//
-//            this->canvas->update();
-//
-//            this->drawPillars();
+            right.at(leftIndex)->draw(0.0f, 0.0f, 1.0f);
+
+            this->canvas->update();
+            this->drawPillars();
 
             heights.push_back(right.at(rightIndex)->getHeight());
             rightIndex++;
@@ -83,7 +63,7 @@ std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const st
     {
         result.at(i)->setHeight(heights.at(i));
 
-        this->draw();
+        this->drawPillars();
     }
 
     return result;
@@ -117,17 +97,12 @@ std::vector<Pillar*> Mergesort::mergeSort(const std::vector<Pillar*> &pillars)
 
 void Mergesort::drawPillars()
 {
-    for (unsigned int i = 0; i < this->pillars->size(); i++)
-    {
-        pillars->at(i)->draw();
-    }
-}
-
-void Mergesort::draw()
-{
     this->canvas->clear();
 
-    this->drawPillars();
+    for (unsigned int i = 0; i < this->pillars->size(); i++)
+    {
+        pillars->at(i)->draw(1.0f, 1.0f, 1.0f);
+    }
 
     this->canvas->update();
 }

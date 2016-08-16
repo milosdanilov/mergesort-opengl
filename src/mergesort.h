@@ -18,7 +18,7 @@ public:
         this->pillars = pillars;
     };
 
-    void draw(void);
+    void drawPillars(void);
 
     virtual ~Mergesort() {};
 
@@ -30,8 +30,6 @@ protected:
 private:
     Canvas *canvas;
     std::vector<Pillar*> *pillars;
-
-    void drawPillars(void);
 };
 
 #endif //MERGESORT_OPENGL_MERGESORT_H
