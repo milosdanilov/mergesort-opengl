@@ -6,6 +6,9 @@
 #include <iostream>
 #include "window.h"
 
+#define SDL_SWAP_INTERVAL_IMMEDIATE     0
+#define SDL_SWAP_INTERVAL_SYNC          1
+
 Window::Window(int width, int height, const std::string &title)
 {
     this->width = width;
@@ -52,7 +55,7 @@ void Window::clear()
 void Window::refresh()
 {
     SDL_GL_SwapWindow(this->sdlWindow);
-    SDL_GL_SetSwapInterval(1);
+    SDL_GL_SetSwapInterval(SDL_SWAP_INTERVAL_SYNC);
 }
 
 void Window::inputHandle()

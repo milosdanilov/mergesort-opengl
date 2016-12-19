@@ -113,7 +113,9 @@ void Mergesort::draw()
 
 void Mergesort::drawPillars()
 {
-    for (unsigned int i = 0; i < this->pillars->size(); i++)
+    size_t numOfPillars = this->pillars->size();
+
+    for (unsigned int i = 0; i < numOfPillars; i++)
     {
         this->pillars->at(i)->draw(1.0f, 1.0f, 1.0f);
     }
