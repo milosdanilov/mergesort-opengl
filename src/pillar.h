@@ -8,6 +8,8 @@
 
 #include <GL/glew.h>
 
+#define PILLAR_MAX_NUMBER_OF_PILLARS    100
+
 class Pillar
 {
 public:
@@ -28,9 +30,6 @@ private:
     GLfloat yPos;
     GLfloat height;
     GLfloat width;
-
-    const short maxNumOfPillars = 100;
-    const GLfloat spaceBetweenPillars = 1.0f;
 };
 
 

@@ -4,15 +4,17 @@
 
 #include "pillar.h"
 
+#define PILLAR_BOTTOM_OFFSET  100.0f
+#define PILLAR_LEFT_OFFSET     10.0f
+#define PILLAR_SPACE_BETWEEN    1.0f
 
 Pillar::Pillar(float height, int num)
 {
     this->height = height;
-    this->width = (800 - 20.0f - this->maxNumOfPillars * this->spaceBetweenPillars) / this->maxNumOfPillars;
+    this->width = (800 - 20.0f - PILLAR_MAX_NUMBER_OF_PILLARS * PILLAR_SPACE_BETWEEN) / PILLAR_MAX_NUMBER_OF_PILLARS;
 
-    this->xPos = 10.0f + num * (this->width + this->spaceBetweenPillars);
-//    this->yPos = 600 - 100.0f;
-    this->yPos = 600;
+    this->xPos = PILLAR_LEFT_OFFSET + num * (this->width + PILLAR_SPACE_BETWEEN);
+    this->yPos = 600 - PILLAR_BOTTOM_OFFSET;
 }
 
 void Pillar::draw(GLfloat red, GLfloat green, GLfloat blue)
