@@ -32,8 +32,7 @@ int main() {
 
     while (! myWindow.isClosed())
     {
-        // Redrawing of the pillars until window closes.
-        // This reduces the stress on CPU, why ?
+        // TODO - implement state machine drawing ?
         mergesort.draw();
         myWindow.inputHandle();
     }
