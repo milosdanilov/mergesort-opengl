@@ -28,7 +28,7 @@ Window::Window(int width, int height, const std::string &title)
                                        SDL_WINDOWPOS_CENTERED,
                                        width,
                                        height,
-                                       SDL_WINDOW_OPENGL
+                                       SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE
     );
 
     this->glContext = SDL_GL_CreateContext(this->sdlWindow);
@@ -64,6 +64,16 @@ void Window::inputHandle()
         {
             case SDL_QUIT:
                 this->close();
+                break;
+            case SDL_WINDOWEVENT:
+                switch (event.window.event)
+                {
+                    case SDL_WINDOWEVENT_SIZE_CHANGED:
+                        SDL_GetWindowSize(this->sdlWindow, &this->width, &this->height);
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;

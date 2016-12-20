@@ -30,6 +30,9 @@ void Canvas::clear()
 
 void Canvas::update()
 {
-    this->window->refresh();
     this->window->inputHandle();
+
+    this->setCanvasSize(0, 0, this->window->getWidth(), this->window->getHeight());
+
+    this->window->refresh();
 }

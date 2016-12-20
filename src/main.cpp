@@ -3,6 +3,8 @@
 
 #include "mergesort.h"
 
+#define NUM_OF_PILLARS  100
+
 using namespace std;
 
 int main(void) {
@@ -14,8 +16,8 @@ int main(void) {
     Canvas canvas(&myWindow);
 
     std::vector<Pillar*> pillars;
-    pillars.reserve(100);
-    for (unsigned int i = 0; i < 100; i++)
+    pillars.reserve(NUM_OF_PILLARS);
+    for (unsigned int i = 0; i < NUM_OF_PILLARS; i++)
     {
         float height = (float)(rand() % (600 - 200));
 

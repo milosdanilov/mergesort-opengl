@@ -11,7 +11,8 @@ Pillar::Pillar(float height, int num)
     this->width = (800 - 20.0f - this->maxNumOfPillars * this->spaceBetweenPillars) / this->maxNumOfPillars;
 
     this->xPos = 10.0f + num * (this->width + this->spaceBetweenPillars);
-    this->yPos = 600 - 100.0f;
+//    this->yPos = 600 - 100.0f;
+    this->yPos = 600;
 }
 
 void Pillar::draw(GLfloat red, GLfloat green, GLfloat blue)
