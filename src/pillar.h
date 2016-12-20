@@ -30,7 +30,7 @@ private:
     GLfloat width;
 
     const short maxNumOfPillars = 100;
-    const GLfloat spaceBetweenPillars = 0.0f;
+    const GLfloat spaceBetweenPillars = 1.0f;
 
     static short numOfPillars;
 };
