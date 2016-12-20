@@ -19,7 +19,7 @@ int main(void) {
     {
         float height = (float)(rand() % (600 - 200));
 
-        Pillar *pillar = new Pillar(height);
+        Pillar *pillar = new Pillar(height, i);
         pillars.push_back(pillar);
     }
 

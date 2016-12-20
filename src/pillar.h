@@ -11,7 +11,7 @@
 class Pillar
 {
 public:
-    Pillar(float height);
+    Pillar(float height, int num);
 
     void draw(GLfloat red, GLfloat green, GLfloat blue);
 
@@ -31,8 +31,6 @@ private:
 
     const short maxNumOfPillars = 100;
     const GLfloat spaceBetweenPillars = 1.0f;
-
-    static short numOfPillars;
 };
 
 

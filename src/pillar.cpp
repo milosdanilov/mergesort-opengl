@@ -4,17 +4,14 @@
 
 #include "pillar.h"
 
-short Pillar::numOfPillars = 0;
 
-Pillar::Pillar(float height)
+Pillar::Pillar(float height, int num)
 {
     this->height = height;
     this->width = (800 - 20.0f - this->maxNumOfPillars * this->spaceBetweenPillars) / this->maxNumOfPillars;
 
-    this->xPos = 10.0f + Pillar::numOfPillars * (this->width + this->spaceBetweenPillars);
+    this->xPos = 10.0f + num * (this->width + this->spaceBetweenPillars);
     this->yPos = 600 - 100.0f;
-
-    Pillar::numOfPillars++;
 }
 
 void Pillar::draw(GLfloat red, GLfloat green, GLfloat blue)
