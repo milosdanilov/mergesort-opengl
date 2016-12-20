@@ -2,10 +2,14 @@
 #include <vector>
 
 #include "mergesort.h"
+#include "sound.h"
 
 using namespace std;
 
 int main(void) {
+
+    Sound sound("./sound.wav");
+    sound.play();
 
     srand((unsigned int)time(NULL));
 
