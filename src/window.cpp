@@ -41,15 +41,7 @@ Window::Window(int width, int height, const std::string &title)
 
 
     this->open();
-
-    this->clear();
     this->refresh();
-}
-
-void Window::clear()
-{
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // set background color
-    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void Window::refresh()
@@ -71,7 +63,6 @@ void Window::inputHandle()
         switch (event.type)
         {
             case SDL_QUIT:
-                std::cout << "closing window!" << std::endl;
                 this->close();
                 break;
             default:
@@ -82,7 +73,7 @@ void Window::inputHandle()
 
 Window::~Window(void)
 {
-    std::cout << "destructor called!" << std::endl;
+    std::cout << "closing window" << std::endl;
 
     SDL_GL_DeleteContext(this->glContext);
 

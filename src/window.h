@@ -14,8 +14,6 @@ class Window
 public:
     Window(int width, int height, const std::string &title);
 
-    void clear(void);
-
     void refresh(void);
 
     void inputHandle(void);
