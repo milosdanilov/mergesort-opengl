@@ -6,6 +6,17 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 # Custom CMake modules, ones that are not included in CMake Find like SDL2
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
+# Require AUDIERE
+find_package(Audiere REQUIRED)
+if (AUDIERE_FOUND)
+    message(STATUS "AUDIERE_INCLUDE_DIR: ${AUDIERE_INCLUDE_DIR}")
+    message(STATUS "AUDIERE_LIBRARY: ${AUDIERE_LIBRARY}")
+
+    # Link AUDIERE library
+    link_libraries(${AUDIERE_LIBRARY})
+    message(STATUS "AUDIERE LIBRARY successfully linked")
+endif()
+
 # Require SDL2
 find_package(SDL2 REQUIRED)
 if (SDL2_FOUND)

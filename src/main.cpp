@@ -1,15 +1,34 @@
 #include <iostream>
 #include <vector>
+//#include <audiere.h>
 
 #include "mergesort.h"
-#include "sound.h"
+//#include "sound.h"
 
 using namespace std;
+//using namespace audiere;
 
 int main(void) {
+//
+//    Sound sound("./sound.wav");
+//    sound.setPitchShift(24000);
+//    sound.play();
 
-    Sound sound("./sound.wav");
-    sound.play();
+//    AudioDevicePtr device(OpenDevice(NULL));
+//
+//    if (!device) {
+//        std::cerr << "OpenDevice() failed" << std::endl;
+//        return EXIT_FAILURE;
+//    }
+//
+//    OutputStreamPtr stream(OpenSound(device, "./sound.wav", false));
+//
+//    if (!stream) {
+//        std::cerr << "OpenSound() failed" << std::endl;
+//        return EXIT_FAILURE;
+//    }
+//
+//    stream->play();
 
     srand((unsigned int)time(NULL));
 

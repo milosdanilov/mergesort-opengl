@@ -55,6 +55,11 @@ void Sound::play()
     SDL_PauseAudioDevice(this->audioDevice, 0);
 }
 
+void Sound::setPitchShift(int freq)
+{
+    this->wavSpec.freq = freq;
+}
+
 Sound::~Sound()
 {
     SDL_CloseAudioDevice(this->audioDevice);

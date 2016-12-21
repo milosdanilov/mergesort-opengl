@@ -11,7 +11,7 @@
 typedef struct
 {
     Uint8 *pos;
-    Uint32  length;
+    Uint32 length;
 } AudioData;
 
 class Sound
@@ -19,6 +19,7 @@ class Sound
 public:
     Sound(const std::string &path);
     void play(void);
+    void setPitchShift(int freq);
     virtual ~Sound(void);
 private:
     SDL_AudioSpec wavSpec;
