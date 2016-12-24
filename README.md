@@ -3,6 +3,8 @@
 This project visually presents the Mergesort sorting algorithm.
 Uses OpenGL for rendering, SLD2 and Audiore libs for window and sound respectively.
 
+![mergesort-animated](mergesort-opengl/mergesort.gif)
+
 ## Installation
 ```
 $ git clone <this repo>
