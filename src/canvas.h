@@ -5,9 +5,9 @@
 #ifndef MERGESORT_OPENGL_CANVAS_H
 #define MERGESORT_OPENGL_CANVAS_H
 
+#include "window.h"
 
 #include <GL/glew.h>
-#include "window.h"
 
 class Canvas
 {

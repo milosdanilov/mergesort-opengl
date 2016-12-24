@@ -2,9 +2,10 @@
 // Created by danilov on 25.6.16..
 //
 
+#include "window.h"
+
 #include <GL/glew.h>
 #include <iostream>
-#include "window.h"
 
 #define SDL_SWAP_INTERVAL_IMMEDIATE     0
 #define SDL_SWAP_INTERVAL_SYNC          1

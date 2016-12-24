@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-#include "mergesort.h"
 #include "sound.h"
+#include "mergesort.h"
 
 using namespace std;
 

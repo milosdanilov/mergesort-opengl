@@ -5,10 +5,12 @@
 #ifndef MERGESORT_OPENGL_MERGESORT_H
 #define MERGESORT_OPENGL_MERGESORT_H
 
-#include <vector>
 #include "pillar.h"
 #include "canvas.h"
 #include "sound.h"
+
+#include <vector>
+
 
 class Mergesort
 {

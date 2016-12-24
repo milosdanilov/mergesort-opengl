@@ -5,7 +5,6 @@
 #ifndef MERGESORT_OPENGL_PILLAR_H
 #define MERGESORT_OPENGL_PILLAR_H
 
-
 #include <GL/glew.h>
 
 #define PILLAR_MAX_NUMBER_OF_PILLARS    100
