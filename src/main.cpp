@@ -4,15 +4,13 @@
 #include "sound.h"
 #include "mergesort.h"
 
-using namespace std;
-
 int main(void) {
 
     srand((unsigned int)time(NULL));
 
     Window myWindow(800, 600, "Mergesort");
     Canvas canvas(&myWindow);
-    Sound sound("./sound.wav");
+    Sound sound("./res/sound.wav");
 
     std::vector<Pillar*> pillars;
     pillars.reserve(PILLAR_MAX_NUMBER_OF_PILLARS);

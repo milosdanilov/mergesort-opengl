@@ -15,7 +15,7 @@ Sound::Sound(const std::string &path)
         return;
     }
 
-    this->stream = OpenSound(this->device, "./sound.wav", false);
+    this->stream = OpenSound(this->device, path.c_str(), false);
 
     if (!this->stream) {
         std::cerr << "OpenSound() failed" << std::endl;

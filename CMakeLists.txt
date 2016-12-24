@@ -49,5 +49,8 @@ if (GLEW_FOUND)
     message(STATUS "GLEW LIBRARY successfully linked")
 endif()
 
+# Copy resource files to res dir
+configure_file(res/sound.wav res/sound.wav COPYONLY)
+
 set(SOURCE_FILES src/main.cpp src/mergesort.cpp src/mergesort.h src/window.cpp src/window.h src/pillar.cpp src/pillar.h src/canvas.cpp src/canvas.h src/sound.h src/sound.cpp)
 add_executable(Mergesort_OpenGL ${SOURCE_FILES})
