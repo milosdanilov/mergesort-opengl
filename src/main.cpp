@@ -1,52 +1,31 @@
 #include <iostream>
 #include <vector>
-//#include <audiere.h>
 
 #include "mergesort.h"
-//#include "sound.h"
+#include "sound.h"
 
 using namespace std;
-//using namespace audiere;
 
 int main(void) {
-//
-//    Sound sound("./sound.wav");
-//    sound.setPitchShift(24000);
-//    sound.play();
-
-//    AudioDevicePtr device(OpenDevice(NULL));
-//
-//    if (!device) {
-//        std::cerr << "OpenDevice() failed" << std::endl;
-//        return EXIT_FAILURE;
-//    }
-//
-//    OutputStreamPtr stream(OpenSound(device, "./sound.wav", false));
-//
-//    if (!stream) {
-//        std::cerr << "OpenSound() failed" << std::endl;
-//        return EXIT_FAILURE;
-//    }
-//
-//    stream->play();
 
     srand((unsigned int)time(NULL));
 
     Window myWindow(800, 600, "Mergesort");
 
     Canvas canvas(&myWindow);
+    Sound sound("./sound.wav");
 
     std::vector<Pillar*> pillars;
     pillars.reserve(PILLAR_MAX_NUMBER_OF_PILLARS);
     for (unsigned int i = 0; i < PILLAR_MAX_NUMBER_OF_PILLARS; i++)
     {
-        float height = (float)(rand() % (600 - 200));
+        float height = (float)(rand() % PILLAR_MAX_HEIGHT);
 
         Pillar *pillar = new Pillar(height, i);
         pillars.push_back(pillar);
     }
 
-    Mergesort mergesort(&canvas, &pillars);
+    Mergesort mergesort(&canvas, &pillars, &sound);
     pillars = mergesort.sort();
 
     while (! myWindow.isClosed())

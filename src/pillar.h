@@ -9,6 +9,7 @@
 #include <GL/glew.h>
 
 #define PILLAR_MAX_NUMBER_OF_PILLARS    100
+#define PILLAR_MAX_HEIGHT               400
 
 class Pillar
 {

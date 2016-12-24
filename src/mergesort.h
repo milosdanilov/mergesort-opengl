@@ -8,6 +8,7 @@
 #include <vector>
 #include "pillar.h"
 #include "canvas.h"
+#include "sound.h"
 
 class Mergesort
 {
@@ -15,10 +16,11 @@ public:
     Pillar *currentPillar;
     bool drawCurrentPillar = false;
 
-    Mergesort(Canvas *canvas, std::vector<Pillar*> *pillars)
+    Mergesort(Canvas *canvas, std::vector<Pillar*> *pillars, Sound *soundEffect)
     {
         this->canvas = canvas;
         this->pillars = pillars;
+        this->soundEffect = soundEffect;
     };
 
     void draw(void);
@@ -34,6 +36,8 @@ protected:
 private:
     Canvas *canvas;
     std::vector<Pillar*> *pillars;
+
+    Sound *soundEffect;
 };
 
 #endif //MERGESORT_OPENGL_MERGESORT_H

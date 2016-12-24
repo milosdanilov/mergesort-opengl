@@ -4,6 +4,11 @@
 
 #include "mergesort.h"
 
+static inline float calculate_pitch(float pillarHeight)
+{
+    return (pillarHeight / (PILLAR_MAX_HEIGHT - 100) * 1.2f) + 0.5f;
+}
+
 std::vector<Pillar*> Mergesort::sort()
 {
     // TODO - find a clean way to pass a vector reference of pointers
@@ -106,6 +111,10 @@ void Mergesort::draw()
     if (this->drawCurrentPillar)
     {
         this->currentPillar->draw(1.0f, 0.0f, 0.0f);
+
+        this->soundEffect->playAtPitch(
+                calculate_pitch(this->currentPillar->getHeight())
+        );
     }
 
     this->canvas->update();

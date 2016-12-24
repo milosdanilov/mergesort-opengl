@@ -11,9 +11,13 @@
 Pillar::Pillar(float height, int num)
 {
     this->height = height;
+
+    // window width - 20.0f - ...
     this->width = (800 - 20.0f - PILLAR_MAX_NUMBER_OF_PILLARS * PILLAR_SPACE_BETWEEN) / PILLAR_MAX_NUMBER_OF_PILLARS;
 
     this->xPos = PILLAR_LEFT_OFFSET + num * (this->width + PILLAR_SPACE_BETWEEN);
+
+    // window height - PILLAR_BOTTOM_OFFSET
     this->yPos = 600 - PILLAR_BOTTOM_OFFSET;
 }
 
