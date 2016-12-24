@@ -3,65 +3,29 @@
 //
 
 #include "sound.h"
+
 #include <iostream>
-
-static void myAudioCallback(void *data, Uint8 *stream, int streamLength)
-{
-    AudioData *audio = (AudioData*)data;
-
-    if (audio->length == 0)
-    {
-        return;
-    }
-
-    Uint32 length = streamLength > audio->length
-                    ? audio->length
-                    : (Uint32)streamLength;
-
-    SDL_memcpy(stream, audio->pos, length);
-
-    audio->pos += length;
-    audio->length -= length;
-}
 
 Sound::Sound(const std::string &path)
 {
-    SDL_Init(SDL_INIT_AUDIO);
+    this->device = OpenDevice();
 
-    if (SDL_LoadWAV(path.c_str(), &this->wavSpec, &this->wavStart, &this->wavLength) == NULL)
-    {
-        std::cerr << "Error: " << path << " could not be loaded as an audio file!" << std::endl;
+    if (!this->device) {
+        std::cerr << "OpenDevice() failed" << std::endl;
         return;
     }
 
-    this->audio.pos = wavStart;
-    this->audio.length = wavLength;
+    this->stream = OpenSound(this->device, "./sound.wav", false);
 
-    this->wavSpec.callback = myAudioCallback;
-    this->wavSpec.userdata = &audio;
-
-    this->audioDevice = SDL_OpenAudioDevice(
-            NULL, 0, &this->wavSpec, NULL, SDL_AUDIO_ALLOW_ANY_CHANGE
-    );
-    if (this->audioDevice == 0)
-    {
-        std::cerr << "Error: " << SDL_GetError() << std::endl;
+    if (!this->stream) {
+        std::cerr << "OpenSound() failed" << std::endl;
         return;
     }
 }
 
-void Sound::play()
+void Sound::playAtPitch(float pitch)
 {
-    SDL_PauseAudioDevice(this->audioDevice, 0);
-}
-
-void Sound::setPitchShift(int freq)
-{
-    this->wavSpec.freq = freq;
-}
-
-Sound::~Sound()
-{
-    SDL_CloseAudioDevice(this->audioDevice);
-    SDL_FreeWAV(this->wavStart);
+    this->stream->reset();
+    this->stream->setPitchShift(pitch);
+    this->stream->play();
 }

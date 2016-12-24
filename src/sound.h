@@ -6,29 +6,19 @@
 #define MERGESORT_OPENGL_SOUND_H
 
 #include <string>
-#include <SDL2/SDL.h>
+#include <audiere.h>
 
-typedef struct
-{
-    Uint8 *pos;
-    Uint32 length;
-} AudioData;
+using namespace audiere;
 
 class Sound
 {
 public:
     Sound(const std::string &path);
-    void play(void);
-    void setPitchShift(int freq);
-    virtual ~Sound(void);
+    void playAtPitch(float pitch);
+    virtual ~Sound(void){};
 private:
-    SDL_AudioSpec wavSpec;
-    Uint8 *wavStart;
-    Uint32 wavLength;
-
-    SDL_AudioDeviceID audioDevice;
-
-    AudioData audio;
+    AudioDevicePtr device;
+    OutputStreamPtr stream;
 };
 
 #endif //MERGESORT_OPENGL_SOUND_H
