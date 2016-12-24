@@ -7,7 +7,7 @@ Uses OpenGL for rendering, SLD2 and Audiore libs for window and sound respective
 
 ## Installation
 ```
-$ git clone <this repo>
+$ git clone https://github.com/milosd92/mergesort-opengl.git
 
 $ cmake .
 $ make
