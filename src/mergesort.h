@@ -16,7 +16,7 @@ public:
     Pillar *currentPillar;
     bool drawCurrentPillar = false;
 
-    Mergesort(Canvas *canvas, std::vector<Pillar*> *pillars, Sound *soundEffect)
+    Mergesort(Canvas *canvas, const std::vector<Pillar*> &pillars, Sound *soundEffect)
     {
         this->canvas = canvas;
         this->pillars = pillars;
@@ -35,7 +35,7 @@ protected:
 
 private:
     Canvas *canvas;
-    std::vector<Pillar*> *pillars;
+    std::vector<Pillar*> pillars;
 
     Sound *soundEffect;
 };

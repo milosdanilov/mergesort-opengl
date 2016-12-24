@@ -25,7 +25,7 @@ int main(void) {
         pillars.push_back(pillar);
     }
 
-    Mergesort mergesort(&canvas, &pillars, &sound);
+    Mergesort mergesort(&canvas, pillars, &sound);
     pillars = mergesort.sort();
 
     while (! myWindow.isClosed())

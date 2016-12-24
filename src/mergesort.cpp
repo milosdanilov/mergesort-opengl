@@ -11,8 +11,7 @@ static inline float calculate_pitch(float pillarHeight)
 
 std::vector<Pillar*> Mergesort::sort()
 {
-    // TODO - find a clean way to pass a vector reference of pointers
-    return this->mergeSort(*this->pillars);
+    return this->mergeSort(this->pillars);
 }
 
 std::vector<Pillar*> Mergesort::merge(const std::vector<Pillar*> &left, const std::vector<Pillar*> &right)
@@ -122,10 +121,10 @@ void Mergesort::draw()
 
 void Mergesort::drawPillars()
 {
-    size_t numOfPillars = this->pillars->size();
+    size_t numOfPillars = this->pillars.size();
 
     for (unsigned int i = 0; i < numOfPillars; i++)
     {
-        this->pillars->at(i)->draw(1.0f, 1.0f, 1.0f);
+        this->pillars.at(i)->draw(1.0f, 1.0f, 1.0f);
     }
 }
